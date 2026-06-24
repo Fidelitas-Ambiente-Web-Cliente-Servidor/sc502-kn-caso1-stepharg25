@@ -1,0 +1,316 @@
+:root {
+  --color-primario:    #5A1F1F;
+  --color-secundario:  #B32C2C;
+  --color-fondo:       #F7F1EE;
+  --color-texto:       #2E2E2E;
+  --color-claro:       #FFFFFF;
+  --color-reserva-vip: #F9E6E3;
+  --color-amarillo:    #FFF1C7;
+
+  --fuente-titulo: 'Playfair Display', serif;
+  --fuente-cuerpo: 'Lato', sans-serif;
+}
+
+/* ─── RESET Y BASE ─── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-cuerpo);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px 50px;
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(90, 31, 31, 0.95), rgba(179, 44, 44, 0.95)), url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-claro);
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.hero-contenido h1 {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2.5rem, 3vw, 4rem);
+  margin-bottom: 0.8rem;
+}
+
+.hero-contenido p {
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+.seccion-menu,
+.seccion-reservas {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(44, 62, 80, 0.1);
+}
+
+.seccion-menu h2,
+.seccion-reservas h2,
+.tabla-reservas-contenedor h3 {
+  font-family: var(--fuente-titulo);
+  color: var(--color-primario);
+  margin-bottom: 18px;
+}
+
+.filtros-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.boton-categoria {
+  border: 1px solid var(--color-primario);
+  background-color: transparent;
+  color: var(--color-primario);
+  padding: 12px 18px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+.boton-categoria:hover,
+.boton-categoria:focus-visible {
+  background-color: var(--color-amarillo);
+}
+
+.boton-categoria.activo {
+  background-color: var(--color-secundario);
+  color: var(--color-claro);
+  border-color: var(--color-secundario);
+}
+
+.grid-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.card-plato {
+  padding: 22px;
+  border-radius: 22px;
+  background-color: var(--color-claro);
+  border: 1px solid rgba(44, 62, 80, 0.08);
+  box-shadow: 0 8px 22px rgba(44, 62, 80, 0.08);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card-plato:hover {
+  transform: translateY(-4px);
+  border-color: rgba(230, 126, 34, 0.4);
+}
+
+.card-plato h3 {
+  font-family: var(--fuente-titulo);
+  margin-bottom: 12px;
+  color: var(--color-primario);
+}
+
+.card-plato p {
+  color: #555555;
+  margin-bottom: 16px;
+}
+
+.card-plato .precio-categoria {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.card-plato .precio {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-secundario);
+}
+
+.card-plato .categoria {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background-color: var(--color-amarillo);
+  color: var(--color-primario);
+  font-size: 0.9rem;
+}
+
+form {
+  display: grid;
+  gap: 16px;
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid #dcd7d3;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background-color: #fcfcfb;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-secundario);
+  box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.12);
+}
+
+.grupo-dos-columnas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+button[type="submit"] {
+  background-color: var(--color-primario);
+  color: var(--color-claro);
+  border: none;
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #1b2a38;
+}
+
+button[type="submit"]:disabled {
+  background-color: #8c9aa3;
+  cursor: not-allowed;
+}
+
+.error-campo {
+  color: #c0392b;
+  font-size: 0.95rem;
+  min-height: 1.2em;
+}
+
+.confirmacion-reserva {
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background-color: #fff4dc;
+  border: 1px solid #f0c282;
+  color: var(--color-primario);
+  font-weight: 600;
+  min-height: 1.2em;
+}
+
+.tabla-reservas-contenedor {
+  margin-top: 30px;
+  overflow-x: auto;
+}
+
+.tabla-reservas {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.tabla-reservas th,
+.tabla-reservas td {
+  padding: 14px 16px;
+  border: 1px solid #e8e4e1;
+  text-align: left;
+}
+
+.tabla-reservas th {
+  background-color: #f7f4f0;
+  color: var(--color-primario);
+  font-weight: 700;
+}
+
+.fila-reserva {
+  background-color: #ffffff;
+}
+
+.fila-reserva.grande {
+  background-color: var(--color-reserva-vip);
+}
+
+.resumen-reservas {
+  margin-top: 24px;
+  padding: 22px;
+  border-radius: 18px;
+  background-color: #ffffff;
+  border: 1px solid rgba(44, 62, 80, 0.08);
+  box-shadow: 0 10px 20px rgba(44, 62, 80, 0.06);
+}
+
+.resumen-reservas p {
+  margin-bottom: 12px;
+}
+
+.resumen-reservas strong {
+  color: var(--color-primario);
+}
+
+@media (max-width: 900px) {
+  .grupo-dos-columnas {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .contenedor {
+    padding: 20px 16px 40px;
+  }
+
+  .filtros-menu {
+    justify-content: center;
+  }
+
+  .seccion-menu,
+  .seccion-reservas {
+    padding: 22px;
+  }
+
+  .tabla-reservas {
+    min-width: 100%;
+  }
+}
